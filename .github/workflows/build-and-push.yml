@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./build/website-lobby/Dockerfile
+          file: ./build/Dockerfile
           build-args: |
             GIT_COMMIT_HASH=${{ needs.extract-service-tag.outputs.version }}
           push: true
