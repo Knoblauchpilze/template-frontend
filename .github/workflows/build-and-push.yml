@@ -58,7 +58,7 @@ jobs:
           build-args: |
             GIT_COMMIT_HASH=${{ needs.extract-service-tag.outputs.version }}
           # https://stackoverflow.com/questions/71679568/github-actions-ignore-or-exclude-dependabot-pull-requests
-          push: ${{ github.actor == 'dependabot[bot]' }}
+          push: ${{ github.actor != 'dependabot[bot]' }}
           tags: totocorpsoftwareinc/template-frontend:${{ needs.extract-service-tag.outputs.version }}
 
   update-deployment:
