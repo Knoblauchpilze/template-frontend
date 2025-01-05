@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>{'Template frontend'}</title>
+	<title>{$pageTitle}</title>
 </svelte:head>
 <HeroContainer
 	width={$heroContainer.width}
