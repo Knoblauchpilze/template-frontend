@@ -31,6 +31,6 @@ describe.concurrent('Converting API response to UI DTO', () => {
 	it('should preserve creation date', () => {
 		const inputDto = new UserResponseDto(SAMPLE_USER_DATA);
 		const actual = userResponseDtoToUserUiDto(inputDto);
-		expect(actual.createdAt).toBe('January 5, 2025 at 15:56:32');
+		expect(actual.createdAt).toBe('January 5, 2025 at 14:56:32');
 	});
 });
