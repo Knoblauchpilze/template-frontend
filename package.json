@@ -15,7 +15,7 @@
 		"test": "npm run test:unit -- --run"
 	},
 	"dependencies": {
-		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.20"
+		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.22"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",
