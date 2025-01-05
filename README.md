@@ -4,9 +4,12 @@ This repository defines a scaffolding project to kick-start a frontend applicati
 
 Below is a gallery of images from this project:
 
-
 ![Welcome page](resources/welcome-page.png)
 ![Login page](resources/login-page.png)
+
+# Badges
+
+[![Build and push frontend](https://github.com/Knoblauchpilze/template-frontend/actions/workflows/build-and-push.yml/badge.svg)](https://github.com/Knoblauchpilze/template-frontend/actions/workflows/build-and-push.yml)
 
 # Why this project?
 
