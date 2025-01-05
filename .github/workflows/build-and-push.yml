@@ -1,0 +1,81 @@
+name: Build and push frontend
+
+on:
+  push:
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/**'
+      - 'build/**'
+      - 'src/**'
+      - 'static/**'
+      - '*.js'
+      - '*config*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  extract-service-tag:
+    runs-on: ubuntu-latest
+    # https://docs.github.com/en/actions/using-jobs/defining-outputs-for-jobs
+    outputs:
+      version: ${{ steps.service-version.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract git commit hash
+        id: service-version
+        # https://stackoverflow.com/questions/58886293/getting-current-branch-and-commit-hash-in-github-action
+        run: echo "tag=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_OUTPUT
+
+  check-code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install modules
+        run: |
+          npm ci
+      - name: Check code style with linter
+        run: |
+          npm run lint
+
+  build-and-push-docker-image:
+    needs: [extract-service-tag, check-code-style]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./build/website-lobby/Dockerfile
+          build-args: |
+            GIT_COMMIT_HASH=${{ needs.extract-service-tag.outputs.version }}
+          push: true
+          tags: totocorpsoftwareinc/website-lobby:${{ needs.extract-service-tag.outputs.version }}
+
+  update-deployment:
+    runs-on: ubuntu-latest
+    needs: [extract-service-tag, build-and-push-docker-image]
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'Knoblauchpilze/ec2-deployment'
+          token: ${{ secrets.DEPLOYMENT_TOKEN }}
+      - name: Update service tag
+        run: |
+          echo "${{ needs.extract-service-tag.outputs.version }}" > ./build/website-lobby/version.txt
+      - name: 'Commit changes'
+        run: |
+          git pull
+          git config --global user.name 'totocorpbot'
+          git config --global user.email 'totocorpbot@users.noreply.github.com'
+          git commit -am "infra: Bumped website-lobby version to ${{ needs.extract-service-tag.outputs.version }}"
+          git push
