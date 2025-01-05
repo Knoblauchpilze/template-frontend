@@ -6,7 +6,7 @@ const SAMPLE_USER_DATA = {
 	id: 'e6e68c94-8ff6-483a-94bf-95aecaf2aab2',
 	email: 'my-email@domain.com',
 	password: 'the-password',
-	createdAt: '2025-01-05T14:56:32.717344+01:00'
+	createdAt: '2025-01-05T14:56:32.717344+00:00'
 };
 
 describe.concurrent('Converting API response to UI DTO', () => {
@@ -31,6 +31,6 @@ describe.concurrent('Converting API response to UI DTO', () => {
 	it('should preserve creation date', () => {
 		const inputDto = new UserResponseDto(SAMPLE_USER_DATA);
 		const actual = userResponseDtoToUserUiDto(inputDto);
-		expect(actual.createdAt).toBe('January 5, 2025 at 14:56:32');
+		expect(actual.createdAt).toBe('January 5, 2025 at 15:56:32');
 	});
 });
