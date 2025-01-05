@@ -1,4 +1,4 @@
-name: Build and push frontend
+name: Build and push service
 
 on:
   push:
