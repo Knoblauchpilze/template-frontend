@@ -124,6 +124,19 @@ Finally, although [dependabot](https://docs.github.com/en/code-security/dependab
 
 ![Dependabot configuration](resources/dependabot-secrets.png)
 
+## Configuring access to other services
+
+Out of the box this project comes with a configuration allowing to access two services:
+* the user service (see [here](https://github.com/Knoblauchpilze/template-frontend/blob/master/src/lib/rest/api.ts#L2)).
+* a customizable service (see [here](https://github.com/Knoblauchpilze/template-frontend/blob/master/src/lib/rest/api.ts#L1)).
+
+Those variables are coming from the environment (see the [.env.example.local](https://github.com/Knoblauchpilze/template-frontend/blob/master/.env-example.local) file). Additionally those variables are also provided when building the docker file (see [Dockerfile](https://github.com/Knoblauchpilze/template-frontend/blob/master/build/Dockerfile#L6-L7)). Their values are used in convenience functions allowing to build URLs to request data from the services (see e.g. [buildUserUrl](https://github.com/Knoblauchpilze/template-frontend/blob/master/src/lib/rest/api.ts#L13)).
+
+If needed, it is possible to modify/add/otherwise alter the values of those variables to contact other services: this allows to contact any back-end services as needed. This can be done by:
+* added a descriptive line in the `.env.example.local` file.
+* adding this line to the `Dockerfile` with a meaningful value.
+* (optional, if needed) overrides this value in the CI.
+
 ## Working and developing on a new project
 
 Assuming the previous steps have been completed, you can now use the other `make` target to start a development server and see the results of your changes:
