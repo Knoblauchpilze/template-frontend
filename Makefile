@@ -24,5 +24,5 @@ docker:
 	docker build \
 		--build-arg GIT_COMMIT_HASH=${GIT_COMMIT_HASH} \
 		--tag totocorpsoftwareinc/template-frontend:${GIT_COMMIT_HASH} \
-		-f build/template-frontend/Dockerfile \
+		-f build/Dockerfile \
 		.
