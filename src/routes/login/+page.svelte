@@ -36,7 +36,7 @@
 
 	<FlexContainer extensible={false} styling="h-3/5">
 		<StyledText text="Login" />
-		<form method="POST" action="?/login" class="flex flex-col flex-1 justify-evenly">
+		<form method="POST" action="?/login" class="flex flex-1 flex-col justify-evenly">
 			<FormField label="email:" labelId="email" labelStyling={'text-secondary'}>
 				<input
 					id="email"
