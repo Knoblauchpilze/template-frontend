@@ -90,7 +90,15 @@ make install
 
 ## Creating secrets
 
-TODO: Refine this section.
+This repository expects at least two secrets to work properly: `DOCKERHUB_USERNAME` and `DOCKERHUB_TOKEN`. They correspond to information on how to access the `dockerhub` repository to push the docker image built for the service.
+
+They are referenced in the [github workflow](https://github.com/Knoblauchpilze/template-frontend/blob/master/.github/workflows/build-and-push.yml#L51-L52): if you don't need to push to `dockerhub` then you can modify the workflow to suit your needs.
+
+Due to the current configuration to push to the `ec2-deployment` repository, we also require a github token provided as a secret to push to this repository: this can be adapted to your own needs in a similar way.
+
+Finally, although [dependabot](https://docs.github.com/en/code-security/dependabot) is configured, we chose to **disable the steps that require secrets** for workflows executed by the bot. In case you want to change this, you will need to provide the secrets also for dependabot (see this [documentation section](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#investigating-failed-workflow-runs) or issue [#3253](https://github.com/dependabot/dependabot-core/issues/3253) on this topic):
+
+![Dependabot configuration](resources/dependabot-secrets.png)
 
 ## Extending the new project
 
