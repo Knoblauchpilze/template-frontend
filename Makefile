@@ -18,6 +18,7 @@ build:
 	npm run build
 
 lint:
+	npm run format
 	npm run lint
 
 docker:
