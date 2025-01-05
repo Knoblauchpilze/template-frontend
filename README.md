@@ -7,9 +7,13 @@ Below is a gallery of images from this project:
 ![Welcome page](resources/welcome-page.png)
 ![Login page](resources/login-page.png)
 
+Shortly described, this project provides a minimalistic frontend to allow users to login/logout and display information about them.
+
 # Badges
 
 [![Build and push frontend](https://github.com/Knoblauchpilze/template-frontend/actions/workflows/build-and-push.yml/badge.svg)](https://github.com/Knoblauchpilze/template-frontend/actions/workflows/build-and-push.yml)
+
+[![codecov](https://codecov.io/gh/Knoblauchpilze/template-frontend/graph/badge.svg?token=JN0GHIAGHX)](https://codecov.io/gh/Knoblauchpilze/template-frontend)
 
 # Why this project?
 
@@ -53,15 +57,35 @@ The [lib](src/lib) folder contains the base utilities which were always necessar
 * services to perform the communication with the back-end services.
 * a generic asset to represent 
 
-The structure of the folder 
+The structure of the folder is designed to be extensible easily:
 
-TODO: Refine the following sections.
+![lib folder structure](resources/lib-folder-structure.png)
+
+Although the service is quite minimalistic it defines some components which are very likely to be needed in other projects.
 
 ## The routes
 
+This project defines a couple of routes to showcase the possibilities offered by `svelte`. Namely:
+* some simple routes.
+* a route with a named parameter.
+
+The second point is interesting because it allows to parameterize the routes based on the resources managed by the back-end (and frontend) service. You can read more in the [Advanced routing](https://svelte.dev/docs/kit/advanced-routing) documentation page.
+
+![routes folder structure](routes-folder-structure.png)
+
 ## The CI
 
-## Building this project
+The CI configured for this project will perform:
+* check of the code style.
+* run the tests.
+* build and push the docker image for the service.
+* update the deployment with the latest version of the service.
+
+This is summarized by the execution graph below:
+
+![CI overview](resources/ci-overview.png)
+
+As represented by the badge in this README the coverage is not the highest currently but the goal is mainly to have a base to run tests to make it easier to write some in actual projects.
 
 # How to use this project for a new service?
 
@@ -100,7 +124,7 @@ Finally, although [dependabot](https://docs.github.com/en/code-security/dependab
 
 ![Dependabot configuration](resources/dependabot-secrets.png)
 
-## Extending the new project
+## Working and developing on a new project
 
 Assuming the previous steps have been completed, you can now use the other `make` target to start a development server and see the results of your changes:
 
