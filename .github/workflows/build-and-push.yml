@@ -51,7 +51,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
   build-and-push-docker-image:
-    needs: [extract-service-tag, check-code-style]
+    needs: [extract-service-tag, build-and-test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
