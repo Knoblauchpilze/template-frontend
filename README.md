@@ -39,7 +39,7 @@ This project also provides a working CI through github actions: it will automati
 - tests are passing.
 - the docker image can be built.
 
-It will also push this image to `dockerhub`. On `master` it will also come with an update to the [ec2-deployment](https://github.com/Knoblauchpilze/ec2-deployment) with the newly created tag for the service: this will automatically deploy the newest version to the cluster when the CI is green. By default this is disabled but can be easily reactivated by modifying the github action workflow file (TODO: provide link).
+It will also push this image to `dockerhub`. On `master` it will also come with an update to the [ec2-deployment](https://github.com/Knoblauchpilze/ec2-deployment) with the newly created tag for the service: this will automatically deploy the newest version to the cluster when the CI is green. By default this will push to the `ec2-deployment` repository but can be updated easily to something else.
 
 ## The lib folder
 
@@ -50,7 +50,7 @@ The [lib](src/lib) folder contains the base utilities which were always necessar
 * services to perform the communication with the back-end services.
 * a generic asset to represent 
 
-The structure of the 
+The structure of the folder 
 
 TODO: Refine the following sections.
 
@@ -84,6 +84,10 @@ Finally you can set up the `.env` file to define the needed environment variable
 make setup
 make install
 ```
+
+## Creating secrets
+
+TODO: Refine this section.
 
 ## Extending the new project
 
