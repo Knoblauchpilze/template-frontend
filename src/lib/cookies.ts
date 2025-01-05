@@ -9,10 +9,7 @@ const DEFAULT_COOKIES_OPT = {
 const COOKIE_KEY_API_USER = 'api-user';
 const COOKIE_KEY_API_KEY = 'api-key';
 
-export {
-	COOKIE_KEY_API_USER,
-	COOKIE_KEY_API_KEY
-};
+export { COOKIE_KEY_API_USER, COOKIE_KEY_API_KEY };
 
 function validOrEmptyString(maybeValue: string | undefined, valid: boolean): string {
 	return valid ? (maybeValue as string) : '';
