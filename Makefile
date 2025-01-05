@@ -18,7 +18,7 @@ build:
 	npm run build
 
 lint:
-	npx prettier . --write
+	npm run lint
 
 docker:
 	docker build \
