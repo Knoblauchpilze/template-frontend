@@ -89,9 +89,25 @@ As represented by the badge in this README the coverage is not the highest curre
 
 ## Themes
 
-In order to give a consistent look and feel to the entire website, this project already defines a palette to be used to style components. This is materialized in the [tailwind config](tailwind.config.js) in the `themes` section:
+In order to give a consistent look and feel to the entire website, this project already defines a palette to be used to style components. This is materialized in the [tailwind config](tailwind.config.ts) in the `themes` section:
 
-TODO: Add screenshot.
+```json
+{
+    "theme": {
+        "extend": {
+            "colors": {
+                "primary": "#000",
+                "primary-hover": "#222",
+                "primary-selected": "#444",
+                "secondary": "#fff",
+                "secondary-hover": "#fff",
+                "error": "#d92d0f",
+                "overlay": "#0b0b45"
+            }
+        }
+    }
+}
+```
 
 Using this it is easy to refer to the primary color of the website through e.g. `bg-primary` in a component. This guarantee that all components will be styled in the same say and that it's easy to modify the whole theme by changing a single value in the configuration.
 
