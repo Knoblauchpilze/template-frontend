@@ -87,6 +87,16 @@ This is summarized by the execution graph below:
 
 As represented by the badge in this README the coverage is not the highest currently but the goal is mainly to have a base to run tests to make it easier to write some in actual projects.
 
+## Themes
+
+In order to give a consistent look and feel to the entire website, this project already defines a palette to be used to style components. This is materialized in the [tailwind config](tailwind.config.js) in the `themes` section:
+
+TODO: Add screenshot.
+
+Using this it is easy to refer to the primary color of the website through e.g. `bg-primary` in a component. This guarantee that all components will be styled in the same say and that it's easy to modify the whole theme by changing a single value in the configuration.
+
+When extending the project, it is recommended to keep the same strategy and add for example an accent color and so on.
+
 # How to use this project for a new service?
 
 ## Setting up the project
