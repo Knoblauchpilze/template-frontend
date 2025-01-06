@@ -105,12 +105,25 @@ cd MY-AWESOME-PROJECT-NAME
 ./scripts/configure.sh MY-AWESOME-PROJECT-NAME
 ```
 
-Finally you can set up the `.env` file to define the needed environment variable and install the dependencies using the `make` target:
+This should generate (if everything goes well) something like the following:
+
+![Example of successful configuration](resources/example-configuration.png)
+
+There are a couple of things that need to be configured before being able to use the newly configured project:
+* update the `dockerhub` repository used by the CI (see the [workflow](.github/workflows/build-and-push.yml) and the [Makefile](Makefile)).
+* update the README with accurate information.
+* in case the frontend project needs access to some service, update them in:
+    * the [.env-example.local](.env-example.local) file.
+    * the [Dockerfile](build/Dockerfile).
+    * add them to the [api](src/lib/rest/api.ts) description.
+
+Once this is done, you set up the `.env` file to define the needed environment variable using the `make` target:
 
 ```bash
 make setup
-make install
 ```
+
+Installing the dependencies should be taken care of by the configuration script.
 
 ## Creating secrets
 
