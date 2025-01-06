@@ -71,7 +71,7 @@ This project defines a couple of routes to showcase the possibilities offered by
 
 The second point is interesting because it allows to parameterize the routes based on the resources managed by the back-end (and frontend) service. You can read more in the [Advanced routing](https://svelte.dev/docs/kit/advanced-routing) documentation page.
 
-![routes folder structure](routes-folder-structure.png)
+![routes folder structure](resources/routes-folder-structure.png)
 
 ## The CI
 
