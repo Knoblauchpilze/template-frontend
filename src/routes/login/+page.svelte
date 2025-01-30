@@ -45,6 +45,7 @@
 					required
 					value={form?.email ?? ''}
 					oninput={resetFormError}
+					class="bg-white"
 				/>
 			</FormField>
 			<FormField label="password:" labelId="password" labelStyling={'text-secondary'}>
@@ -55,6 +56,7 @@
 					placeholder="Enter your password"
 					required
 					oninput={resetFormError}
+					class="bg-white"
 				/></FormField
 			>
 			<StyledButton text="Login" />
