@@ -19,7 +19,7 @@
 		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.29"
 	},
 	"devDependencies": {
-		"@eslint/compat": "^1.2.6",
+		"@eslint/compat": "^1.2.7",
 		"@sveltejs/adapter-node": "^5.2.12",
 		"@sveltejs/kit": "^2.17.2",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
