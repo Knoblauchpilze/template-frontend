@@ -89,23 +89,23 @@ As represented by the badge in this README the coverage is not the highest curre
 
 ## Themes
 
-In order to give a consistent look and feel to the entire website, this project already defines a palette to be used to style components. This is materialized in the [tailwind config](tailwind.config.ts) in the `themes` section:
+In order to give a consistent look and feel to the entire website, this project already defines a palette to be used to style components. This is materialized in the [main css file](src/styles/app.css) for the application:
 
-```json
-{
-    "theme": {
-        "extend": {
-            "colors": {
-                "primary": "#000",
-                "primary-hover": "#222",
-                "primary-selected": "#444",
-                "secondary": "#fff",
-                "secondary-hover": "#fff",
-                "error": "#d92d0f",
-                "overlay": "#0b0b45"
-            }
-        }
-    }
+```css
+@theme {
+	--color-primary: #263037;
+	--color-primary-hover: #36454f;
+	--color-primary-selected: #535a5e;
+	--color-secondary: #b87333;
+	--color-secondary-hover: #fff;
+	--color-enabled: #2a7a0c;
+	--color-enabled-hover: #45d90f;
+	--color-disabled: #751c0d;
+	--color-disabled-hover: #d92d0f;
+	--color-error: #d92d0f;
+	--color-overlay: #0005;
+
+	--background-image-homepage: url('$lib/assets/background.webp');
 }
 ```
 
