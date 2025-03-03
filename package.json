@@ -16,6 +16,7 @@
 		"coverage": "TZ=UTC vitest run --coverage"
 	},
 	"dependencies": {
+		"@tailwindcss/vite": "^4.0.9",
 		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.29"
 	},
 	"devDependencies": {
@@ -34,8 +35,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"svelte": "^5.20.5",
 		"svelte-check": "^4.1.4",
-		"tailwindcss": "^4.0.6",
-		"@tailwindcss/postcss": "^4.0.9",
+		"tailwindcss": "^4.0.9",
 		"typescript": "^5.8.2",
 		"typescript-eslint": "^8.26.0",
 		"vite": "^6.2.0",
