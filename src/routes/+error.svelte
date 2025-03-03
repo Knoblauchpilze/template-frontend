@@ -8,7 +8,7 @@
 	}
 </script>
 
-<FlexContainer extensible={false} styling={'h-1/2'}>
+<FlexContainer extensible={false} styling="h-1/2">
 	<StyledTitle text="Oh noes, something went wrong..." />
 
 	<table>
