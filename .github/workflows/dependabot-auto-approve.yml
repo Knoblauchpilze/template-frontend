@@ -1,0 +1,30 @@
+# https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#automatically-approving-a-pull-request
+name: Dependabot auto-approve
+on: pull_request
+
+permissions:
+  pull-requests: write
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    steps:
+      - name: Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2.3.0
+        with:
+          github-token: ${{ secrets.DEPENDABOT_AUTO_APPROVE_TOKEN }}
+      - name: Approve the pull request
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.DEPENDABOT_AUTO_APPROVE_TOKEN }}
+      - name: Enable auto-merge
+        # https://stackoverflow.com/questions/69916356/how-do-i-enable-auto-merge-on-a-github-pull-request-via-the-rest-api
+        # https://stackoverflow.com/questions/69112842/how-can-i-allow-github-automerge-to-perform-the-merge-without-explicitly-enablin
+        # In non interactive mode we need the --merge
+        run: gh pr merge "$PR_URL" --squash --auto
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GH_TOKEN: ${{ secrets.DEPENDABOT_AUTO_APPROVE_TOKEN }}
