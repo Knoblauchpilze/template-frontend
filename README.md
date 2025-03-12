@@ -163,6 +163,8 @@ Finally, although [dependabot](https://docs.github.com/en/code-security/dependab
 
 ![Dependabot configuration](resources/dependabot-secrets.png)
 
+If you choose to use the automatic updates provided by dependabot, this repository also expects you to provide a github access token to automatically approve the PRs. See the [CI setup](#ci-setup) section for more information.
+
 ## Configuring access to other services
 
 Out of the box this project comes with a configuration allowing to access two services:
@@ -175,6 +177,42 @@ If needed, it is possible to modify/add/otherwise alter the values of those vari
 * added a descriptive line in the `.env.example.local` file.
 * adding this line to the `Dockerfile` with a meaningful value.
 * (optional, if needed) overrides this value in the CI.
+
+## CI setup
+
+By default this project comes with some configuration allowing to:
+* make it easy to develop and maintain the repository
+* make integration with dependabot as effortless as possible
+
+Both requirements need some changes in the rules applicable when an actor merges or creats a commit in the repository.
+
+This [Stack Overflow](https://stackoverflow.com/questions/64116781/how-do-i-automerge-dependabot-updates-config-version-2) post links to a page of the github actions [documentation](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#automatically-approving-a-pull-request) which explains how to create a workflow to automatically approve dependabot PRs.
+
+You can find the necessary github workflow under [dependabot-auto-approve.yml](.github/workflows/dependabot-auto-approve.yml).
+
+** Note:** this goes against the recommendations of the github team (see issue [#1973](https://github.com/dependabot/dependabot-core/issues/1973#issuecomment-640918321)): the reasoning is that somebody should have a look at the updates to prevent bad actors from injecting malicious code in a project. Considering the scope of this template project this seems like a low risk. In case you want to use this template for something more serious, please consider removing this feature.
+
+The steps above are materialized by the configuration of the project:
+
+![CI project settings](resources/ci-project-settings.png)
+
+And by the ruleset applying to the `master` branch:
+
+![CI branch ruleset](resources/ci-branch-ruleset.png)
+
+In order to make this work, you will need to provide a github token and save it as a dependabot secret under `DEPENDABOT_AUTO_APPROVE_TOKEN`:
+
+![CI dependabot token](resources/ci-dependabot-token.png)
+
+This token can be a fine grain token, needing the following permissions:
+* Repository access to the repository you create from this project
+* Read and write access to `Contents`
+* Read access to `Metadata` (mandatory by default)
+* Read and write access to `Pull requests`
+
+For a visual approach see the picture below:
+
+![CI token permissions](resources/ci-token-permissions.png)
 
 ## Working and developing on a new project
 
