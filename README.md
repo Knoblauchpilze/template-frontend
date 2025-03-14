@@ -184,7 +184,7 @@ By default this project comes with some configuration allowing to:
 * make it easy to develop and maintain the repository
 * make integration with dependabot as effortless as possible
 
-Both requirements need some changes in the rules applicable when an actor merges or creats a commit in the repository.
+To correctly integrate this with the permissions defined for the repository and the branch protection rules, there are a couple of changes needed.
 
 This [Stack Overflow](https://stackoverflow.com/questions/64116781/how-do-i-automerge-dependabot-updates-config-version-2) post links to a page of the github actions [documentation](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#automatically-approving-a-pull-request) which explains how to create a workflow to automatically approve dependabot PRs.
 
@@ -200,7 +200,7 @@ And by the ruleset applying to the `master` branch:
 
 ![CI branch ruleset](resources/ci-branch-ruleset.png)
 
-Note that in order to allow pushing to the master branch without opening a PR, the current configuration adds the repository admins to the bypass list: this means that the branch protection will not be enforced for them. It is convenient for development but can be change in case multiple people are collaborating on a project.
+Note that in order to allow pushing to the master branch without opening a PR, the current configuration adds the repository admins to the bypass list: this means that the branch protection will not be enforced for them. It is convenient for development but can be change in case multiple people are collaborating on the project.
 
 In order to make this work, you will need to provide a github token and save it as a dependabot secret under `DEPENDABOT_AUTO_APPROVE_TOKEN`:
 
