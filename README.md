@@ -184,13 +184,13 @@ By default this project comes with some configuration allowing to:
 * make it easy to develop and maintain the repository
 * make integration with dependabot as effortless as possible
 
-To correctly integrate this with the permissions defined for the repository and the branch protection rules, there are a couple of changes needed.
+To correctly integrate this with the permissions defined for the repository and the branch protection rules, there are a couple of changes needed. Namely, as the node ecosystem usually generates quite a lot of dependabot updates, this project by default **automatically merges the PRs** when the CI passes and some checks succeed.
+
+**Note:** this goes against the recommendations of the github team (see issue [#1973](https://github.com/dependabot/dependabot-core/issues/1973#issuecomment-640918321)): the reasoning is that somebody should have a look at the updates to prevent bad actors from injecting malicious code in a project. Considering the scope of this template project this seems like a low risk. In case you want to use this template for something more serious, please consider removing this feature.
 
 This [Stack Overflow](https://stackoverflow.com/questions/64116781/how-do-i-automerge-dependabot-updates-config-version-2) post links to a page of the github actions [documentation](https://docs.github.com/en/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#automatically-approving-a-pull-request) which explains how to create a workflow to automatically approve dependabot PRs.
 
 You can find the necessary github workflow under [dependabot-auto-approve.yml](.github/workflows/dependabot-auto-approve.yml).
-
-** Note:** this goes against the recommendations of the github team (see issue [#1973](https://github.com/dependabot/dependabot-core/issues/1973#issuecomment-640918321)): the reasoning is that somebody should have a look at the updates to prevent bad actors from injecting malicious code in a project. Considering the scope of this template project this seems like a low risk. In case you want to use this template for something more serious, please consider removing this feature.
 
 The steps above are materialized by the configuration of the project:
 
