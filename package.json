@@ -17,7 +17,7 @@
 	},
 	"dependencies": {
 		"@tailwindcss/vite": "^4.1.4",
-		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.42"
+		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.43"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.8",
