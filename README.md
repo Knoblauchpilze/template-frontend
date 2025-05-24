@@ -200,7 +200,9 @@ And by the ruleset applying to the `master` branch:
 
 ![CI branch ruleset](resources/ci-branch-ruleset.png)
 
-Note that in order to allow pushing to the master branch without opening a PR, the current configuration adds the repository admins to the bypass list: this means that the branch protection will not be enforced for them. It is convenient for development but can be change in case multiple people are collaborating on the project.
+Note that in order to allow pushing to the master branch without opening a PR, the current configuration adds the repository admins to the bypass list: this means that the branch protection will not be enforced for them. It is convenient for development but can be changed in case multiple people are collaborating on the project.
+
+Also note that in case you add/change steps to the CI, you might need to register those as required status checks in the settings. You can find more information either in [#172](https://github.com/Knoblauchpilze/galactic-sovereign-frontend/pull/172) or [here](https://emmer.dev/blog/skippable-github-status-checks-aren-t-really-required/).
 
 In order to make this work, you will need to provide a github token and save it as a dependabot secret under `DEPENDABOT_AUTO_APPROVE_TOKEN`:
 
