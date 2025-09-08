@@ -16,7 +16,7 @@
 		"coverage": "TZ=UTC vitest run --coverage"
 	},
 	"dependencies": {
-		"@tailwindcss/vite": "^4.1.12",
+		"@tailwindcss/vite": "^4.1.13",
 		"@totocorpsoftwareinc/frontend-toolkit": "^0.0.44"
 	},
 	"devDependencies": {
