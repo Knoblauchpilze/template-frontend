@@ -45,7 +45,7 @@ jobs:
           npm run coverage
       - name: Upload coverage to Codecov
         if: ${{ github.actor != 'dependabot[bot]' }}
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           fail_ci_if_error: true
           files: ./coverage/coverage-final.json
