@@ -1,4 +1,4 @@
-FROM node:22 AS builder
+FROM node:26 AS builder
 ARG API_BASE_URL="http://my-awesome-service:80/v1/my-awesome-service"
 ARG USER_API_BASE_URL="http://user-service:80/v1/users"
 WORKDIR /build
@@ -8,7 +8,7 @@ RUN echo "PUBLIC_USER_API_BASE_URL='${USER_API_BASE_URL}'" >> .env
 RUN npm install
 RUN npm run build
 
-FROM node:22-alpine3.18
+FROM node:26-alpine3.24
 ARG GIT_COMMIT_HASH="undefined"
 ARG SERVER_ORIGIN="http://localhost:3001"
 ARG NODE_PORT=3001
