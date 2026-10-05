@@ -1,5 +1,5 @@
 import { type Cookies, redirect } from '@sveltejs/kit';
-import { ApiKeyResponseDto } from '$lib/communication/api/apiKeyResponseDto';
+import { ApiKeyResponseDto } from '#lib/communication/api/apiKeyResponseDto';
 import { HttpStatus } from '@totocorpsoftwareinc/frontend-toolkit';
 
 const DEFAULT_COOKIES_OPT = {

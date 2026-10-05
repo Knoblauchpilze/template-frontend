@@ -1,4 +1,4 @@
-import { buildUserUrl } from '$lib/rest/api';
+import { buildUserUrl } from '#lib/rest/api';
 import { safeFetchJson, type ApiResponse } from '@totocorpsoftwareinc/frontend-toolkit';
 
 export async function loginUser(email: string, password: string): Promise<ApiResponse> {

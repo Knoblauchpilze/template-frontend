@@ -1,5 +1,5 @@
 <script lang="ts">
-	import pageTitle from '$lib/stores/ui/pageTitle';
+	import pageTitle from '#lib/stores/ui/pageTitle';
 
 	import { FlexContainer, StyledButton, StyledTitle } from '@totocorpsoftwareinc/frontend-toolkit';
 

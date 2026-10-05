@@ -1,4 +1,4 @@
-import { UserResponseDto } from '$lib/communication/api/userResponseDto';
+import { UserResponseDto } from '#lib/communication/api/userResponseDto';
 import { describe, expect, it } from 'vitest';
 import { userResponseDtoToUserUiDto } from './userConverter';
 
