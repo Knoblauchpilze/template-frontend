@@ -24,7 +24,7 @@ export async function load({ params, cookies, depends }) {
 	}
 
 	return {
-		wepageTitle: 'Hello ' + userDto.email + '!',
+		webpageTitle: 'Hello ' + userDto.email + '!',
 
 		user: userResponseDtoToUserUiDto(userDto),
 		apiKey: sessionCookies.apiKey

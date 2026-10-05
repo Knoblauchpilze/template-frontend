@@ -7,7 +7,7 @@
 	// https://svelte.dev/docs/kit/load#Page-data
 	let { data } = $props();
 
-	pageTitle.set(data.wepageTitle);
+	pageTitle.set(data.webpageTitle);
 
 	const labelStyle = 'font-bold px-2 text-right';
 	const fieldStyle = 'text-secondary';
