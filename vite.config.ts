@@ -4,8 +4,14 @@ import tailwindcss from '@tailwindcss/vite';
 // https://kit.svelte.dev/docs/adapter-node
 import adapter from '@sveltejs/adapter-node';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
+	resolve: {
+		alias: {
+			$assets: fileURLToPath(new URL('./src/lib/assets', import.meta.url))
+		}
+	},
 	plugins: [
 		sveltekit({
 			// Consult https://svelte.dev/docs/kit/integrations

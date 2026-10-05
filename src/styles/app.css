@@ -15,5 +15,5 @@
 	--color-error: #d92d0f;
 	--color-overlay: #0005;
 
-	--background-image-homepage: url('#lib/assets/background.webp');
+	--background-image-homepage: url('$assets/background.webp');
 }
