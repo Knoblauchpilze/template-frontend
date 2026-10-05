@@ -1,6 +1,6 @@
-import type { UserResponseDto } from '$lib/communication/api/userResponseDto';
-import type { UserUiDto } from '$lib/communication/ui/userUiDto';
-import { formatDate } from '$lib/time';
+import type { UserResponseDto } from '#lib/communication/api/userResponseDto';
+import type { UserUiDto } from '#lib/communication/ui/userUiDto';
+import { formatDate } from '#lib/time';
 
 export function userResponseDtoToUserUiDto(apiDto: UserResponseDto): UserUiDto {
 	return {

@@ -105,7 +105,7 @@ In order to give a consistent look and feel to the entire website, this project 
 	--color-error: #d92d0f;
 	--color-overlay: #0005;
 
-	--background-image-homepage: url('$lib/assets/background.webp');
+	--background-image-homepage: url('#lib/assets/background.webp');
 }
 ```
 

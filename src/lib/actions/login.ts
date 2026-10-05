@@ -1,7 +1,7 @@
-import { ApiKeyResponseDto } from '$lib/communication/api/apiKeyResponseDto';
-import { setSessionCookies } from '$lib/cookies';
-import { getErrorMessageFromApiResponse } from '$lib/rest/api';
-import { loginUser } from '$lib/services/sessions';
+import { ApiKeyResponseDto } from '#lib/communication/api/apiKeyResponseDto';
+import { setSessionCookies } from '#lib/cookies';
+import { getErrorMessageFromApiResponse } from '#lib/rest/api';
+import { loginUser } from '#lib/services/sessions';
 import { fail, redirect, type RequestEvent } from '@sveltejs/kit';
 import {
 	getHttpStatusCodeFromApiFailure,

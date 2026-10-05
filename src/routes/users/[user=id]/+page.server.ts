@@ -1,12 +1,12 @@
 import { error } from '@sveltejs/kit';
 import { HttpStatus, parseApiResponseAsSingleValue } from '@totocorpsoftwareinc/frontend-toolkit';
 
-import { loadSessionCookiesOrRedirectToLogin } from '$lib/cookies';
-import { handleApiError, redirectToLoginIfNeeded } from '$lib/rest/api';
-import { getUser } from '$lib/services/users';
-import { UserResponseDto } from '$lib/communication/api/userResponseDto';
-import { userResponseDtoToUserUiDto } from '$lib/converters/userConverter';
-import { logout } from '$lib/actions/logout';
+import { loadSessionCookiesOrRedirectToLogin } from '#lib/cookies';
+import { handleApiError, redirectToLoginIfNeeded } from '#lib/rest/api';
+import { getUser } from '#lib/services/users';
+import { UserResponseDto } from '#lib/communication/api/userResponseDto';
+import { userResponseDtoToUserUiDto } from '#lib/converters/userConverter';
+import { logout } from '#lib/actions/logout';
 
 export async function load({ params, cookies, depends }) {
 	const sessionCookies = loadSessionCookiesOrRedirectToLogin(cookies);
@@ -24,7 +24,7 @@ export async function load({ params, cookies, depends }) {
 	}
 
 	return {
-		wepageTitle: 'Hello ' + userDto.email + '!',
+		webpageTitle: 'Hello ' + userDto.email + '!',
 
 		user: userResponseDtoToUserUiDto(userDto),
 		apiKey: sessionCookies.apiKey
