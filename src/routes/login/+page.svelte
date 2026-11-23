@@ -57,8 +57,8 @@
 					required
 					oninput={resetFormError}
 					class="bg-white"
-				/></FormField
-			>
+				/>
+			</FormField>
 			<StyledButton text="Login" />
 		</form>
 
